@@ -1,0 +1,15 @@
+.vscode/
+.tscompile/
+
+/lib
+
+/node_modules
+
+/coverage
+
+/dist
+/docs-dist
+
+.DS_Store
+.env
+*.log
