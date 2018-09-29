@@ -1,7 +1,15 @@
 image: node:alpine
 
 stages:
+  - test
   - deploy
+
+unit test:
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm run test -- --color
 
 deploy version:
   stage: deploy
