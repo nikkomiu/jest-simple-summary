@@ -4,17 +4,23 @@ stages:
   - test
   - deploy
 
-unit test:
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
+
+.testing: &testing
   stage: test
   before_script:
     - npm install
+
+unit test:
+  <<: *testing
   script:
     - npm run test -- --color
 
 lint:
-  stage: test
-  before_script:
-    - npm install
+  <<: *testing
   script:
     - npm run lint
 
