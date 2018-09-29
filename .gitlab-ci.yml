@@ -13,9 +13,10 @@ unit test:
 
 deploy version:
   stage: deploy
+  before_script:
+    - echo $NPMRC > ./.npmrc
   script:
     - 'sed -ie "s/\"version\": \"[0-9]\{1,10\}\.[0-9]\{1,10\}\.[0-9]\{1,10\}\(-\(alpha\|beta\)\{1\}\)\{0,1\}\"/\"version\": \"$CI_COMMIT_TAG\"/g" package.json'
-    - cat package.json
     - npm publish
   only:
     - tags
