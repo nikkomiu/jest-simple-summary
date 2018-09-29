@@ -10,7 +10,7 @@ class JestSimpleSummary {
     this.cloverPath = join(this.globalConfig.coverageDirectory, 'clover.xml');
   }
 
-  cloverReader(err, data) {
+  static cloverReader(err, data) {
     if (err) {
       console.error('Could not process XML!\n');
       console.error(err.toString());
@@ -25,8 +25,8 @@ class JestSimpleSummary {
       methods,
       coveredmethods,
       elements,
-      coveredelements
-    } = data.coverage.project[0].metrics[0]['$'];
+      coveredelements,
+    } = data.coverage.project[0].metrics[0].$;
 
     const statementPercent = +coveredstatements / +statements;
     const conditionalPercent = +coveredconditionals / +conditionals;
@@ -38,11 +38,11 @@ class JestSimpleSummary {
     // Total is (sum / 4) * 100 which simplifies to sum * 25
     console.log();
     console.log('=== Simple Coverage ===');
-    console.log(`Total Coverage: ${(sum * 25).toFixed(2)}%`)
+    console.log(`Total Coverage: ${(sum * 25).toFixed(2)}%`);
     console.log('=======================');
-  };
+  }
 
-  onReadFile(reader) {
+  static onReadFile(reader) {
     return (err, data) => {
       if (err) {
         console.error('Could not process coverage results.');
@@ -52,11 +52,11 @@ class JestSimpleSummary {
       }
 
       parseString(data, reader);
-    }
+    };
   }
 
   onRunComplete() {
-    readFile(this.cloverPath, 'utf8', this.onReadFile(this.cloverReader));
+    readFile(this.cloverPath, 'utf8', JestSimpleSummary.onReadFile(JestSimpleSummary.cloverReader));
   }
 }
 

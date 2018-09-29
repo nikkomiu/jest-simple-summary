@@ -11,6 +11,13 @@ unit test:
   script:
     - npm run test -- --color
 
+lint:
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm run lint
+
 deploy version:
   stage: deploy
   before_script:
