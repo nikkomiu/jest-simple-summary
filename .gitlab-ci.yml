@@ -12,7 +12,7 @@ unit test:
     - npm run test -- --color
 
 lint:
-  stage: lint
+  stage: test
   before_script:
     - npm install
   script:
