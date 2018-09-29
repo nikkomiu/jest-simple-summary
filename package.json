@@ -14,6 +14,16 @@
   },
   "author": "Nikko Miu <nikkoamiu@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "ci",
+    "cd",
+    "gitlab",
+    "jest",
+    "coverage",
+    "coverage-reporter",
+    "single-coverage",
+    "simple-coverage"
+  ],
   "dependencies": {
     "xml2js": "^0.4.19"
   },
