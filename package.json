@@ -2,8 +2,8 @@
   "name": "jest-simple-summary",
   "version": "0.0.0-alpha",
   "description": "Simple Summary for Jest",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/nikko.miu/jest-simple-summary.git"
