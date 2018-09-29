@@ -1,0 +1,27 @@
+{
+  "collectCoverage": true,
+  "coverageReporters": ["lcov", "clover"],
+  "collectCoverageFrom": [
+    "src/**/*.{js}",
+    "!**/node_modules/**"
+  ],
+  "coverageDirectory": "<rootDir>/coverage",
+  "coverageThreshold": {
+    "global": {
+      "branches": 90,
+      "functions": 90,
+      "lines": 90,
+      "statements": 90
+    }
+  },
+  "reporters": ["default", "<rootDir>/src/index.js"],
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
+  "moduleFileExtensions": [
+    "js"
+  ],
+  "testURL": "http://localhost",
+  "testRegex": "/src/.*(\\.spec)\\.js$"
+}
