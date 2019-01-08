@@ -29,7 +29,7 @@ class JestSimpleSummary {
     } = data.coverage.project[0].metrics[0].$;
 
     const statementPercent = +coveredstatements / +statements;
-    const conditionalPercent = +coveredconditionals / +conditionals;
+    const conditionalPercent = +conditionals > 0 ? (+coveredconditionals / +conditionals) : 1;
     const methodPercent = +coveredmethods / +methods;
     const elementPercent = +coveredelements / +elements;
 
