@@ -80,4 +80,30 @@ describe('index', () => {
 
     expect(console.log).toHaveBeenCalledWith('Total Coverage: 50.00%');
   });
+
+  it('sets the percentage of branches to 1, thus 100%, when there are no conditionals', () => {
+    const data = {
+      coverage: {
+        project: [{
+          metrics: [{
+            $: {
+              statements: 10,
+              coveredstatements: 10,
+              conditionals: 0,
+              coveredconditionals: 0,
+              methods: 10,
+              coveredmethods: 10,
+              elements: 10,
+              coveredelements: 10,
+            },
+          }],
+        }],
+      },
+    };
+    console.log = jest.fn();
+
+    JestSimpleSummary.cloverReader(undefined, data);
+
+    expect(console.log).toHaveBeenCalledWith('Total Coverage: 100.00%');
+  });
 });
