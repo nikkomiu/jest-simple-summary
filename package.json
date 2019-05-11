@@ -24,6 +24,10 @@
     "single-coverage",
     "simple-coverage"
   ],
+  "bugs": {
+    "url": "https://gitlab.com/nikko.miu/jest-simple-summary/issues"
+  },
+  "homepage": "https://gitlab.com/nikko.miu/jest-simple-summary#readme",
   "dependencies": {
     "xml2js": "^0.4.19"
   },
